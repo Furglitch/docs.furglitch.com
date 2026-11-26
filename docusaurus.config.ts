@@ -15,17 +15,18 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://furglitch.github.io',
+  url: process.env.SITE_URL ?? 'http://localhost:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: process.env.BASE_URL ?? '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'furglitch', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'docs.furglitch.com', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  trailingSlash: false,
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -39,25 +40,34 @@ const config: Config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        docs: false, // {
+        //   sidebarPath: './sidebars.ts',
+        // },
+        blog: false, // {
+        //   showReadingTime: true,
+        //   feedOptions: {
+        //     type: ['rss', 'atom'],
+        //     xslt: true,
+        //   },
+        //   // Useful options to enforce blogging best practices
+        //   onInlineTags: 'warn',
+        //   onInlineAuthors: 'warn',
+        //   onUntruncatedBlogPosts: 'warn',
+        // },
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
+  ],
+
+  plugins: [ 
+    ['@docusaurus/plugin-content-docs', {
+      id: 'mo2-installer',
+      path: 'projects/modorganizer2-linux-installer/docs',
+      routeBasePath: 'modorganizer2-linux-installer', // match the current URL path
+    }], 
+    []
   ],
 
   themeConfig: {
@@ -73,6 +83,12 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        {
+          type: 'docSidebar',
+          docsPluginId: 'mo2-lint',
+          sidebarId: 'defaultSidebar',
+          label: 'MO2-LINT (Mod Organizer 2 Linux Installer)',
+        },
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'tutorialSidebar',

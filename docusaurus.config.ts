@@ -41,7 +41,7 @@ const config: Config = {
       'classic',
       {
         docs: false, // {
-        //   sidebarPath: './sidebars.ts',
+          // sidebarPath: './sidebars.ts',
         // },
         blog: false, // {
         //   showReadingTime: true,
@@ -63,11 +63,10 @@ const config: Config = {
 
   plugins: [ 
     ['@docusaurus/plugin-content-docs', {
-      id: 'mo2-installer',
-      path: 'projects/modorganizer2-linux-installer/docs',
+      id: 'mo2-lint',
+      path: '../modorganizer2-linux-installer/docs',
       routeBasePath: 'modorganizer2-linux-installer', // match the current URL path
-    }], 
-    []
+    }]
   ],
 
   themeConfig: {
@@ -87,7 +86,8 @@ const config: Config = {
           type: 'docSidebar',
           docsPluginId: 'mo2-lint',
           sidebarId: 'defaultSidebar',
-          label: 'MO2-LINT (Mod Organizer 2 Linux Installer)',
+          label: 'MO2-LINT',
+          versions: ['7.0.5, 7.1.0']
         },
         // {
         //   type: 'docSidebar',

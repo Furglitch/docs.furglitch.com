@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: Furglitch/modorganizer2-linux-installer
-          ref: docusaurus          # becomes main at cutover
+          ref: docs
           path: projects/modorganizer2-linux-installer
           sparse-checkout: docs
 

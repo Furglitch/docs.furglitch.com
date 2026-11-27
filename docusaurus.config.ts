@@ -64,7 +64,7 @@ const config: Config = {
   plugins: [ 
     ['@docusaurus/plugin-content-docs', {
       id: 'mo2-lint',
-      path: '../modorganizer2-linux-installer/docs',
+      path: 'projects/modorganizer2-linux-installer/docs',
       routeBasePath: 'modorganizer2-linux-installer', // match the current URL path
     }]
   ],
